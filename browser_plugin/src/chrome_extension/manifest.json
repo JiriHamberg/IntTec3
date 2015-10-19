@@ -1,14 +1,23 @@
 {
 	"manifest_version": 2,
-
 	"name": "IntTec: Eye Tracking",
 	"description": "This extension is receives eye tracking information from our backend and uses this data to display different events to the user",
 	"version": "1.0",
 
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": true
+	},
 	"browser_action": {
 		"default_icon": "eye_icon.png",
 		"default_popup": "popup.html",
 		"default_title": "Eye Tracker"
 	},
+	"content_scripts": [
+		{
+			"matches": ["*"],
+			"js": ["gaze_matcher.js", "link_preview.js"]
+		}
+	],
 	"permissions": []
 }
