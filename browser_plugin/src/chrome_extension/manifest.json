@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+
+	"name": "IntTec: Eye Tracking",
+	"description": "This extension is receives eye tracking information from our backend and uses this data to display different events to the user",
+	"version": "1.0",
+
+	"browser_action": {
+		"default_icon": "eye_icon.png",
+		"default_popup": "popup.html",
+		"default_title": "Eye Tracker"
+	},
+	"permissions": []
+}
