@@ -1,12 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
-	<head>
-		<title>Eye Tracker</title>
-		<style type="text/css"></style>
-		<script src="popup.js"></script>
-	</head>
-	<body>
-		<iframe id="previewFrame" src=""></iframe>
-	</body>
+<head>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="popup.css">
+	<script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+</head>
+
+<body>
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#link_preview_tab">Link preview</a></li>
+		<li><a data-toggle="tab" href="#some_tab">Some tab</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div id="link_preview_tab" class="tab-pane fade in active">
+			<iframe id="previewFrame" src=""></iframe>
+		</div>
+
+		<div id="some_tab" class="tab-pane fade">
+				<p>Some text</p>
+		</div>
+	</div>
+</body>
 </html>

@@ -15,7 +15,7 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["*"],
+			"matches": ["http://*/*", "https://*/*"],
 			"js": ["gaze_matcher.js", "link_preview.js"]
 		}
 	],
