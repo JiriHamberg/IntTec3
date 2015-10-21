@@ -4,10 +4,6 @@
 	"description": "This extension is receives eye tracking information from our backend and uses this data to display different events to the user",
 	"version": "1.0",
 
-	"background": {
-		"scripts": ["background.js"],
-		"persistent": true
-	},
 	"browser_action": {
 		"default_icon": "eye_icon.png",
 		"default_popup": "popup.html",
@@ -15,9 +11,8 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["http://*/*", "https://*/*"],
-			"js": ["gaze_matcher.js", "link_preview.js"]
+			"matches": ["http://*/*"],
+			"js": ["gaze_matcher.js"]
 		}
-	],
-	"permissions": []
+	]
 }
