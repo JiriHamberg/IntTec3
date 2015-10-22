@@ -1,3 +1,11 @@
+/*
+	Receives coordinates from backend and forwards them to content scripts. Content
+	scripts respond with some information that is then used to display information
+	on the popup window.
+
+	Author: Niko Kortström (niko.kortstrom@helsinki.fi)
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
 	var ws = new WebSocket('ws://localhost:8888')
 
