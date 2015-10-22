@@ -5,14 +5,14 @@
 	"version": "1.0",
 
 	"browser_action": {
-		"default_icon": "eye_icon.png",
+		"default_icon": "images/eye_icon.png",
 		"default_popup": "popup.html",
 		"default_title": "Eye Tracker"
 	},
 	"content_scripts": [
 		{
 			"matches": ["http://*/*"],
-			"js": ["gaze_matcher.js"]
+			"js": ["js/gaze_matcher.js"]
 		}
 	]
 }
