@@ -2,7 +2,6 @@
     - start the test server
     - manually load the extension to chrome
     - open extension's popup window
-    - coordinates sent by the server will result in ~400px,~280px location in the browser's current view
     - extension will get the element at that location and if it contains a link, it is displayed on the extension's popup window
     - coordinates will be sent 10 times with 10sec intervals (scroll down -> a different page should be displayed if there is a link)
 */
