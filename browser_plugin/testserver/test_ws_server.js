@@ -16,9 +16,12 @@ socket.on('request', function(request) {
     var connection = request.accept(null, request.origin);
 
     var coordinateObject = {
+        fixation: {
             x: 0.21,
             y: 0.29
+        }
     }
+    
     sendCoordinate(connection, 10, JSON.stringify(coordinateObject));
 
     connection.on('close', function(connection) {

@@ -13,8 +13,17 @@ import tornado.websocket as websocket
 
 import time, argparse, socket, sys, threading
 
-import config, parser
+import config
+import xml_parser as parser
 
+
+def request_data(sock, args):
+    sock.send(str.encode( 
+        '''<SET ID="ENABLE_SEND_POG_FIX" STATE="1" />\r\n
+        <SET ID="ENABLE_SEND_EYE_LEFT" STATE="1" />\r\n
+        <SET ID="ENABLE_SEND_EYE_RIGHT" STATE="1" />\r\n
+        <SET ID="ENABLE_SEND_DATA" STATE="1" />\r\n'''
+    ))
 
 def get_xml_event_stream(args):
     """
@@ -30,6 +39,7 @@ def get_xml_event_stream(args):
         tcpCliSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             tcpCliSock.connect((config.EYE_TRACKING_HOST, config.EYE_TRACKING_PORT))
+            request_data(tcpCliSock, args)
         except socket.error as e:
             print >> sys.stderr, "Could not connect to eye tracking server: %s" % (e.strerror)
             sys.exit(1)

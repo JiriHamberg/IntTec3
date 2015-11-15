@@ -12,9 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	ws.onmessage = function (event) {
 		msg = JSON.parse(event.data);
 
-		var coordinateData = {
+		/*var coordinateData = {
 				gazeX: msg.x,
 				gazeY: msg.y
+	  	};*/
+	  	//using the format specified in the xml_parser.py
+	  	var coordinateData = {
+	  		gazeX: msg.fixation.x,
+	  		gazeY: msg.fixation.y
 	  	};
 
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
