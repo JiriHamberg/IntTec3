@@ -53,13 +53,8 @@ class Camera(BaseModule):
 
     def tick(self, event):
         if not event.fixation['valid']:
-            # Fixation not valid, reset all counters to avoid unwanted actions
-            self.left_ticks = 0
-            self.right_ticks = 0
-            self.up_ticks = 0
-            self.down_ticks = 0
-            pass
-
+            # There are much ticks with invalid fixation. Skip those.
+            return
         self.increment_ticks(event)
         self.do_actions()
 
