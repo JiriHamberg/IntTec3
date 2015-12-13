@@ -1,0 +1,18 @@
+Content:
+- provide abstract
+- title reflects the scope / outcome of the project
+- present the design clearly
+- what we accomplished
+- mature reasoning of what worked and what didn't work, and how it could be improved
+- pictures for illustrations
+
+Logic and language:
+- well developed logic (structure)
+- cogent arguments
+- reflects critical thinking on the subject
+- language flow (smoothy reading experience)
+
+Overall:
+- the motivation is clarified in the report
+- the report elaborate the project
+- how the project reflects possible real-life scenarios is in report
