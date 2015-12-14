@@ -37,7 +37,8 @@
 
 \begin{abstract}
 
-TBA
+Eye tracking technologies, albeit being about a century-old, is perticularly interesting as a type of interface technologies. Video-based eye tracking technologies is one class that has been proved quite useful in many areas including those from both scientific researches and daily activities. The ideas of using video-based eye tracking technologies in web browsing and playing games has been presented and discussed in recent years, and indeed, those ideas are fascinating. Introducing eye tracking technologies to those two omnipresent and extremely popular applications could open the door to richer experiences and more possibilities. However, there are latent practical issues for sure. In this report, we intend to present our project which not only verified the practicality of aforementioned ideas but explore relative issues as well.   
+
 
 \end{abstract}
 
@@ -58,7 +59,7 @@ There were two subjects of interest in the project, thus two program prototypes 
 
 Section 3 reports the Chrome extension and Section 4 reports the game controller framework. In both Section 3 and Section 4, the motives and ideas for applying an eye tracking technology (IR-PCR in the project) to the relative interface will be elaborated in the first place. Then, there will be a brief introduction to the composition and working principle of the prototype. This is followed by an illustration of usage with some skatchings/screenshots. 
 
-In Section 5,  an analysis on practicality of using IR-PCR technology for web browsing and for controlling game is presented. Then we conclude the project.
+In Section 5,  an analysis on practicality of using IR-PCR technology for web browsing and for controlling game is presented. Eventually, we summarise what we have learnt during the course, then we conclude the project.
 
 
 \section{Video-based eye tracking}
@@ -93,13 +94,13 @@ The second category is called "attentive user interfaces", where a user does not
 
 The third category is called "gaze-based user modeling", where the goal is to discern patterns of user behaviors on an interface, or to assess an interface by doing so. Interesting application are mostly researches in human-computer interaction, human cognition, or psychology. Some examples are: usability research in human-computer interaction \cite{Poole05eyetracking} \cite{Jacob2003573}; visual perception research\cite{John2004}.
 
-The fourth category is called "passive eye monitoring". This is the case in which data of eye movements are collected for study or inspection. There is no interaction in the process. No connection between eye movements and an interface will be established. An interesting example is about court tests on whether a driver is intoxicated during driving by monitoring eye movements\cite{Busloff1993}.
+The fourth category is called "passive eye monitoring". This is the case in which data of eye movements are collected for study or inspection. There is no interaction in the process. No connection between eye movements and an interface will be established. An interesting example is about tests on whether a driver is intoxicated during driving by monitoring eye movements\cite{Busloff1993}. It is worth noticing that tests are not conducted with a digital eye tracker but a simple scale and naked eyes of the tester, which marks this as one of the simplest forms of eye tracking "technology" (techniques actually).
 
-We actually found many concrete examples of applications, those in gaming control were especially interesting since one of our alternative idea for the project is about gaze controlled games. Videos of these examples can be found in the appendix. 
+We have found also concrete examples of applications, those in gaming control were especially interesting since one of our alternative idea for the project is about gaze controlled games. Videos of these examples can be found in the appendix. 
 
 \subsection{Advantages and problems in using an IR-PCR eye tracker}
 
-The Mirametrix S2 we are working with is a "bright pupil" IR-PCR eye tracker. Because an IR-PCR eye tracker generates its own reference points for tracking eyes, it does not require a user's head to stay absolutely still. Certain levels of flexibility on head movements is allowed. Besides, a binocular eye tracker that tracks both eyes of a user may be able to output data on users' head position based on the relative position of two eyes. The Mirametrix S2 eye tracker series happen to have this capability. This suggests that there is potential in using head gestures such as tilting head to enrich the means of control over the interface. 
+The Mirametrix S2 we are working with is a "bright pupil" IR-PCR eye tracker. Because an IR-PCR eye tracker generates its own reference points for tracking eyes, it does not require a user's head to remain absolutely motionless. Certain levels of flexibility on head movements is allowed. Besides, a binocular eye tracker that tracks both eyes of a user may be able to output data on users' head position based on the relative position of two eyes. The Mirametrix S2 eye tracker series happen to have this capability. This suggests that there is potential in using head gestures such as tilting head to enrich the means of control over the interface. 
 
 On the latent problems of "bright pupil" eye tracker. Such eye trackers, which rely on the "bright pupil effect" to work, may perform differently on different individuals, due to the reason that the "bright pupil effect" isn't the same on every human \cite{Nguyen:2002:DIB:507072.507099} There could exists an inconsistency on tracking accuracy from different users even with the same device and calibration process. This actually agrees with our initial test on the Mirametrix S2 eye tracker. Considering this latent problem as well as the potentially wide user groups of the application, the software end of our system should has high error tolerance.
 
