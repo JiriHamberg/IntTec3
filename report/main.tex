@@ -22,8 +22,8 @@
     keywordstyle={\color{red}\bfseries}
 }
 
-\title{Browsing webs and playing games using an eye tracker: practical issues}
-\author{Liangyi Luo, Tomi Simsiö, }
+\title{Browsing the web and playing games using an eye tracker: practical issues}
+\author{Liangyi Luo, Tomi Simsiö, Jiri Hamberg }
 \date{\today}
 
 \maketitle
@@ -129,34 +129,39 @@ Based on the premises and assumptions above, what we can think of is a browsing 
 
 \subsection{The composition and working principle of the plug-in}
 
-{illustration}
+The browser plug-in is composed of three main components. The Mirametrix server, provided by Mirametrix alongside the hardware and driver packages, communicates directly with the eye tracking hardware through the Windows driver. The Mirametrix server exposes the Open Eye Tracking API through a HTTP server. The API is built using XML encoded messages.
+
+We built a websocket server to parse the XML data stream from the Mirametrix server and to pipeline the data in json format to our browser plug-in. The websocket protocol was chosen as the communication protocol between the websocket server and the plug-in since it is lightweight, reliable and highly supported protocol in the domain of web browsers. The websocket server spawns a thread for each connecting client. The thread requests data from the Mirametrix server and then listens for incoming data until disconnected. The thread serializes the TCP byte stream at XML message boundaries and sends these to the plug-in in JSON format using the websocket protocol.  
+
+Finally, we decided to build the web browser plug-in using Chrome browser because the developer tools of the Chrome browser were familiar to the majority of our team. The plug-in connects to the websocket server and register a handler for incoming websocket data frames. Each frame consists of the user's current gaze fixation x,y-coordinates. These coordinates are then transformed from the screen coordinates to window coordinates of the browser. The plug-in will then search the DOM for hyperlink elements whose bounding rectangle contains the received x,y coordinate and will open a pop-up window displaying a preview of the hyperlink's destination if such hyperlink element was found.
+
+Figure \ref{pluginarchitecture} illustrates this architecture and layout of the components.
+
+%{illustration}
 \begin{figure}[h]
-%\begin{figure}[tbh] t= top, b = bottom, h=here
-\ \newline
 \begin{center}
-%\includegraphics[width=0.9\textwidth]{kuvaesimerkki.pdf}
-%\rotatebox{90}{\includegraphics[scale=.75]{kuvaesimerkki.pdf}}
-\caption{Figure elements.}
-\label{kuvaesimerkki}
+\includegraphics[width=0.6\textwidth]{plugin_architecture.png}
+\caption{High level architecture and layout of the browser plugin. Green rectangles represent components that we implemented.}
+\label{pluginarchitecture}
 \end{center}
 \end{figure}
 
 \subsection{An illustration of the usage of the interface}
 
-{illustration}
+To use the eye tracking interface, the user navigates to a web page of his/her choice using the Chrome browser. The user then activates the eye tracking plug-in by clicking on the plug-in icon with two nested black circles. A blank pop-up window will open. After the pop-up window is opened, whenever the user gazes at a link for a while, a preview of that link's destination will be opened to the pop-up window. Figure \ref{pluginusage} shows the plug-in in action.
+
+%{illustration}
 \begin{figure}[h]
 %\begin{figure}[tbh] t= top, b = bottom, h=here
-\ \newline
 \begin{center}
-%\includegraphics[width=0.9\textwidth]{kuvaesimerkki.pdf}
+\includegraphics[width=0.9\textwidth]{browser_plugin.png}
 %\rotatebox{90}{\includegraphics[scale=.75]{kuvaesimerkki.pdf}}
-\caption{Figure elements.}
-\label{kuvaesimerkki}
+\caption{Using the browser plug-in to display previews of news articles by gazing at the link.}
+\label{pluginusage}
 \end{center}
 \end{figure}
 
 %\pagebreak
-
 
 
 \section{The implementation for gaming: Using an eye tracker as a game controller}
@@ -240,11 +245,13 @@ All in all, there are three major factors affect the current practicality of eye
 %We might not need this part because repetitive contents.
 \subsection{Things we learned}
 
+The eye tracking technology is applicable to a wide spectrum of interesting topics in human computer interaction. However, great care must be taken in designing and evaluating an eye tracking interface as well as the eye tracking hardware as these may be subjects to many subtle sources of undesirable effects. It would appear, based on our experience working on this project, that the eye tracking technology of today is most practical as a secondary source of input and that interactions requiring great precision should be implemented using other modalities.
 
 
 \subsection{Conclusion}
 
-
+We have demonstrated, with our two prototypes, how eye tracking interfaces can be used to enrich our every day activities such as browsing the web or playing computer games using existing games and web browsers. The practicality of our prototypes is heavily constrained by the available time, our lacking expertise with the technology as well as the constraints of the eye tracking hardware. We hope that our work may inspire others to explore the practical applications for this underutilized technology.
+      
 
 %\enlargethispage{5mm}
 
